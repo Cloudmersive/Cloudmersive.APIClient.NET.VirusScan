@@ -5,21 +5,28 @@
 #& npm build ./client
 
 
+$csprojpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan/Cloudmersive.APIClient.NET.VirusScan.csproj
+$csprojtestpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan/Cloudmersive.APIClient.NET.VirusScan.Test.csproj
+$nuspecpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan/Cloudmersive.APIClient.NET.VirusScan.nuspec
+$slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.ImageRecognition.sln
+
+
+(Get-Content $nuspecpath).replace('<title>Swagger Library</title>', "<title>Image Recognition and Processing APIs</title>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<authors>$author$</authors>', "<authors>Cloudmersive</authors>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<owners>$author$</owners>', "<owners>Cloudmersive</owners>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<description>A library generated from a Swagger doc</description>', "<description>Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.</description>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<!-- Authors contain text that appears directly on the gallery -->', "<iconUrl>https://cloudmersive.com/images/cmsdk.png</iconUrl>") | Set-Content $nuspecpath
 
 
 
 
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj).replace('<Authors>Swagger</Authors>', "<Authors>Cloudmersive</Authors>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj).replace('<Company>Swagger</Company>', "<Company>Cloudmersive</Company>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj).replace('<AssemblyTitle>Swagger Library</AssemblyTitle>', "<AssemblyTitle>Cloudmersive Virus Scan API Client</AssemblyTitle>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj).replace('<Description>A library generated from a Swagger doc</Description>', "<Description>Virus Scan API lets you scan files and content for viruses and identify security issues with content.</Description>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj).replace('<TargetFramework>net45</TargetFramework>', "<TargetFramework>netcoreapp2.1</TargetFramework>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj
 
 
 
+./nuget.exe restore $csprojpath -SolutionDirectory ./client
 
+./nuget.exe restore $csprojtestpath -SolutionDirectory ./client
 
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe $slnpath /t:rebuild 
 
-
-& dotnet build ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj -c Release
-& dotnet pack ./client/src/Cloudmersive.APIClient.NETCore.VirusScan/Cloudmersive.APIClient.NETCore.VirusScan.csproj -c Release
+./nuget.exe pack $csprojpath
