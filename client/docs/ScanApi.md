@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="scanfile"></a>
 # **ScanFile**
-> byte[] ScanFile (System.IO.Stream inputFile)
+> VirusScanResult ScanFile (System.IO.Stream inputFile)
 
 Scan a file for viruses
 
@@ -38,7 +38,7 @@ namespace Example
             try
             {
                 // Scan a file for viruses
-                byte[] result = apiInstance.ScanFile(inputFile);
+                VirusScanResult result = apiInstance.ScanFile(inputFile);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**byte[]**
+[**VirusScanResult**](VirusScanResult.md)
 
 ### Authorization
 

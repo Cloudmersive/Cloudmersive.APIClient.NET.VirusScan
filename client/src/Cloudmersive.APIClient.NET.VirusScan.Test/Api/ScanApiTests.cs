@@ -19,6 +19,7 @@ using NUnit.Framework;
 
 using Cloudmersive.APIClient.NET.VirusScan.Client;
 using Cloudmersive.APIClient.NET.VirusScan.Api;
+using Cloudmersive.APIClient.NET.VirusScan.Model;
 
 namespace Cloudmersive.APIClient.NET.VirusScan.Test
 {
@@ -72,7 +73,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             // TODO uncomment below to test the method and replace null with proper value
             //System.IO.Stream inputFile = null;
             //var response = instance.ScanFile(inputFile);
-            //Assert.IsInstanceOf<byte[]> (response, "response is byte[]");
+            //Assert.IsInstanceOf<VirusScanResult> (response, "response is VirusScanResult");
         }
         
     }

@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using Cloudmersive.APIClient.NET.VirusScan.Client;
+using Cloudmersive.APIClient.NET.VirusScan.Model;
 
 namespace Cloudmersive.APIClient.NET.VirusScan.Api
 {
@@ -31,8 +32,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>byte[]</returns>
-        byte[] ScanFile (System.IO.Stream inputFile);
+        /// <returns>VirusScanResult</returns>
+        VirusScanResult ScanFile (System.IO.Stream inputFile);
 
         /// <summary>
         /// Scan a file for viruses
@@ -42,8 +43,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of byte[]</returns>
-        ApiResponse<byte[]> ScanFileWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>ApiResponse of VirusScanResult</returns>
+        ApiResponse<VirusScanResult> ScanFileWithHttpInfo (System.IO.Stream inputFile);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -54,8 +55,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of byte[]</returns>
-        System.Threading.Tasks.Task<byte[]> ScanFileAsync (System.IO.Stream inputFile);
+        /// <returns>Task of VirusScanResult</returns>
+        System.Threading.Tasks.Task<VirusScanResult> ScanFileAsync (System.IO.Stream inputFile);
 
         /// <summary>
         /// Scan a file for viruses
@@ -65,8 +66,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
         /// </remarks>
         /// <exception cref="Cloudmersive.APIClient.NET.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (byte[])</returns>
-        System.Threading.Tasks.Task<ApiResponse<byte[]>> ScanFileAsyncWithHttpInfo (System.IO.Stream inputFile);
+        /// <returns>Task of ApiResponse (VirusScanResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<VirusScanResult>> ScanFileAsyncWithHttpInfo (System.IO.Stream inputFile);
         #endregion Asynchronous Operations
     }
 
@@ -172,10 +173,10 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>byte[]</returns>
-        public byte[] ScanFile (System.IO.Stream inputFile)
+        /// <returns>VirusScanResult</returns>
+        public VirusScanResult ScanFile (System.IO.Stream inputFile)
         {
-             ApiResponse<byte[]> localVarResponse = ScanFileWithHttpInfo(inputFile);
+             ApiResponse<VirusScanResult> localVarResponse = ScanFileWithHttpInfo(inputFile);
              return localVarResponse.Data;
         }
 
@@ -184,8 +185,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>ApiResponse of byte[]</returns>
-        public ApiResponse< byte[] > ScanFileWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>ApiResponse of VirusScanResult</returns>
+        public ApiResponse< VirusScanResult > ScanFileWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -237,9 +238,9 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<byte[]>(localVarStatusCode,
+            return new ApiResponse<VirusScanResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                (VirusScanResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanResult)));
         }
 
         /// <summary>
@@ -247,10 +248,10 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of byte[]</returns>
-        public async System.Threading.Tasks.Task<byte[]> ScanFileAsync (System.IO.Stream inputFile)
+        /// <returns>Task of VirusScanResult</returns>
+        public async System.Threading.Tasks.Task<VirusScanResult> ScanFileAsync (System.IO.Stream inputFile)
         {
-             ApiResponse<byte[]> localVarResponse = await ScanFileAsyncWithHttpInfo(inputFile);
+             ApiResponse<VirusScanResult> localVarResponse = await ScanFileAsyncWithHttpInfo(inputFile);
              return localVarResponse.Data;
 
         }
@@ -260,8 +261,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
         /// </summary>
         /// <exception cref="Cloudmersive.APIClient.NET.VirusScan.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inputFile">Input file to perform the operation on.</param>
-        /// <returns>Task of ApiResponse (byte[])</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<byte[]>> ScanFileAsyncWithHttpInfo (System.IO.Stream inputFile)
+        /// <returns>Task of ApiResponse (VirusScanResult)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<VirusScanResult>> ScanFileAsyncWithHttpInfo (System.IO.Stream inputFile)
         {
             // verify the required parameter 'inputFile' is set
             if (inputFile == null)
@@ -313,9 +314,9 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<byte[]>(localVarStatusCode,
+            return new ApiResponse<VirusScanResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (byte[]) Configuration.ApiClient.Deserialize(localVarResponse, typeof(byte[])));
+                (VirusScanResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(VirusScanResult)));
         }
 
     }
