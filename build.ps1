@@ -8,7 +8,7 @@
 $csprojpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan/Cloudmersive.APIClient.NET.VirusScan.csproj
 $csprojtestpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan/Cloudmersive.APIClient.NET.VirusScan.Test.csproj
 $nuspecpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.VirusScan/Cloudmersive.APIClient.NET.VirusScan.nuspec
-$slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.ImageRecognition.sln
+$slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.VirusScan.sln
 
 
 (Get-Content $nuspecpath).replace('<title>Swagger Library</title>', "<title>Image Recognition and Processing APIs</title>") | Set-Content $nuspecpath
