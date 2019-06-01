@@ -22,7 +22,7 @@
         <description>Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.</description>
 
         <!-- Dependencies are automatically installed when the package is installed -->
-        <projectUrl>https://cloudmersive.com/ocr-api</projectUrl><dependencies>
+        <projectUrl>https://cloudmersive.com/virus-api</projectUrl><dependencies>
 
             <dependency id="NewtonSoft.Json" version="10.0.3" />
             <dependency id="JsonSubTypes" version="1.2.0" />
