@@ -1,7 +1,7 @@
 /* 
  * virusapi
  *
- * Virus API lets you scan files and content for viruses and identify security issues with content.
+ * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
  *
  * OpenAPI spec version: v1
  * 
@@ -60,7 +60,13 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
             /// Enum ForcedDownload for value: ForcedDownload
             /// </summary>
             [EnumMember(Value = "ForcedDownload")]
-            ForcedDownload = 4
+            ForcedDownload = 4,
+            
+            /// <summary>
+            /// Enum UnableToConnect for value: UnableToConnect
+            /// </summary>
+            [EnumMember(Value = "UnableToConnect")]
+            UnableToConnect = 5
         }
 
         /// <summary>
@@ -72,12 +78,12 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebsiteScanResult" /> class.
         /// </summary>
-        /// <param name="CleanResult">True if the scan contained no threats, false otherwise.</param>
-        /// <param name="WebsiteThreatType">Type of threat returned; can be None, Malware, ForcedDownload or Phishing.</param>
-        public WebsiteScanResult(bool? CleanResult = default(bool?), WebsiteThreatTypeEnum? WebsiteThreatType = default(WebsiteThreatTypeEnum?))
+        /// <param name="cleanResult">True if the scan contained no threats, false otherwise.</param>
+        /// <param name="websiteThreatType">Type of threat returned; can be None, Malware, ForcedDownload or Phishing.</param>
+        public WebsiteScanResult(bool? cleanResult = default(bool?), WebsiteThreatTypeEnum? websiteThreatType = default(WebsiteThreatTypeEnum?))
         {
-            this.CleanResult = CleanResult;
-            this.WebsiteThreatType = WebsiteThreatType;
+            this.CleanResult = cleanResult;
+            this.WebsiteThreatType = websiteThreatType;
         }
         
         /// <summary>
@@ -106,7 +112,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

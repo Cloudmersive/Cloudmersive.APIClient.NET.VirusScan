@@ -1,7 +1,7 @@
 /* 
  * virusapi
  *
- * Virus API lets you scan files and content for viruses and identify security issues with content.
+ * The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
  *
  * OpenAPI spec version: v1
  * 
@@ -33,10 +33,10 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebsiteScanRequest" /> class.
         /// </summary>
-        /// <param name="Url">URL of the website to scan; should begin with http:// or https://.</param>
-        public WebsiteScanRequest(string Url = default(string))
+        /// <param name="url">URL of the website to scan; should begin with http:// or https://.</param>
+        public WebsiteScanRequest(string url = default(string))
         {
-            this.Url = Url;
+            this.Url = url;
         }
         
         /// <summary>
@@ -63,7 +63,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

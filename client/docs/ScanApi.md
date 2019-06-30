@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ScanFile**](ScanApi.md#scanfile) | **POST** /virus/scan/file | Scan a file for viruses
-[**ScanWebsite**](ScanApi.md#scanwebsite) | **POST** /virus/scan/website | Scan a website for malicious content including viruses and threats (including Phishing)
+[**ScanWebsite**](ScanApi.md#scanwebsite) | **POST** /virus/scan/website | Scan a website for malicious content and threats
 
 
 <a name="scanfile"></a>
@@ -76,7 +76,9 @@ Name | Type | Description  | Notes
 # **ScanWebsite**
 > WebsiteScanResult ScanWebsite (WebsiteScanRequest input)
 
-Scan a website for malicious content including viruses and threats (including Phishing)
+Scan a website for malicious content and threats
+
+Operation includes scanning the content of the URL for various types of malicious content and threats, including viruses and threats (including Phishing)
 
 ### Example
 ```csharp
@@ -102,7 +104,7 @@ namespace Example
 
             try
             {
-                // Scan a website for malicious content including viruses and threats (including Phishing)
+                // Scan a website for malicious content and threats
                 WebsiteScanResult result = apiInstance.ScanWebsite(input);
                 Debug.WriteLine(result);
             }

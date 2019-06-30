@@ -1,11 +1,11 @@
 # Cloudmersive.APIClient.NET.VirusScan - the C# library for the virusapi
 
-Virus API lets you scan files and content for viruses and identify security issues with content.
+The Cloudmersive Virus Scan API lets you scan files and content for viruses and identify security issues with content.
 
 This C# SDK is for the [Cloudmersive Virus Scan API](https://www.cloudmersive.com/virus-api):
 
 - API version: v1
-- SDK version: 1.2.9
+- SDK version: 2.0.1
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
@@ -19,7 +19,7 @@ This C# SDK is for the [Cloudmersive Virus Scan API](https://www.cloudmersive.co
 - [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 7.0.0 or later
 - [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.2.0 or later
 
-The DLLs included in the package may not be the latest version. We recommend using [NuGet] (https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
+The DLLs included in the package may not be the latest version. We recommend using [NuGet](https://docs.nuget.org/consume/installing-nuget) to obtain the latest version of the packages:
 ```
 Install-Package RestSharp
 Install-Package Newtonsoft.Json
@@ -102,7 +102,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ScanApi* | [**ScanFile**](docs/ScanApi.md#scanfile) | **POST** /virus/scan/file | Scan a file for viruses
-*ScanApi* | [**ScanWebsite**](docs/ScanApi.md#scanwebsite) | **POST** /virus/scan/website | Scan a website for malicious content including viruses and threats (including Phishing)
+*ScanApi* | [**ScanWebsite**](docs/ScanApi.md#scanwebsite) | **POST** /virus/scan/website | Scan a website for malicious content and threats
 
 
 <a name="documentation-for-models"></a>
