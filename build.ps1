@@ -14,7 +14,7 @@ $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.VirusScan.sln
 (Get-Content $nuspecpath).replace('<title>Swagger Library</title>', "<title>Image Recognition and Processing APIs</title>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<authors>$author$</authors>', "<authors>Cloudmersive</authors>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<owners>$author$</owners>', "<owners>Cloudmersive</owners>") | Set-Content $nuspecpath
-(Get-Content $nuspecpath).replace('<description>A library generated from a Swagger doc</description>', "<description>Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.</description>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<description>A library generated from a Swagger doc</description>', "<description>Cloudmersive Virus Scan allows you to scan files, URLs, and webistes for viruses, malware, trojans, ransomware, spyware, and many other types of threats.  Multi-factor scanninga cross many delivery methods including polymorphic and multipartite.  Scanning supports files, archives, and recursive file formats.</description>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<!-- Authors contain text that appears directly on the gallery -->', "<iconUrl>https://cloudmersive.com/images/cmsdk.png</iconUrl>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<dependencies>', "<projectUrl>https://cloudmersive.com/virus-api</projectUrl><dependencies>") | Set-Content $nuspecpath
 

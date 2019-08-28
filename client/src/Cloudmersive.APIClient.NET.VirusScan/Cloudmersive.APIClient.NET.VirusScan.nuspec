@@ -19,7 +19,7 @@
 
         <!-- The description can be used in package manager UI. Note that the
              nuget.org gallery uses information you add in the portal. -->
-        <description>Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.</description>
+        <description>Cloudmersive Virus Scan allows you to scan files, URLs, and webistes for viruses, malware, trojans, ransomware, spyware, and many other types of threats.  Multi-factor scanninga cross many delivery methods including polymorphic and multipartite.  Scanning supports files, archives, and recursive file formats.</description>
 
         <!-- Dependencies are automatically installed when the package is installed -->
         <projectUrl>https://cloudmersive.com/virus-api</projectUrl><dependencies>
