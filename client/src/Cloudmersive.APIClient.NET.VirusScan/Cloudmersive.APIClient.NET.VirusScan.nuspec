@@ -3,7 +3,7 @@
     <metadata>
         <!-- The identifier that must be unique within the hosting gallery -->
         <id>$id$</id>
-        <title>Image Recognition and Processing APIs</title>
+        <title>Image Recognition and Processing APIs</title><licenseUrl>https://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>
 
         <!-- The package version number that is used when resolving dependencies -->
         <version>$version$</version>
