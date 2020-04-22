@@ -99,6 +99,14 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             // TODO unit test for the property 'ContainsScript'
         }
         /// <summary>
+        /// Test the property 'ContainsPasswordProtectedFile'
+        /// </summary>
+        [Test]
+        public void ContainsPasswordProtectedFileTest()
+        {
+            // TODO unit test for the property 'ContainsPasswordProtectedFile'
+        }
+        /// <summary>
         /// Test the property 'ContainsRestrictedFileFormat'
         /// </summary>
         [Test]
