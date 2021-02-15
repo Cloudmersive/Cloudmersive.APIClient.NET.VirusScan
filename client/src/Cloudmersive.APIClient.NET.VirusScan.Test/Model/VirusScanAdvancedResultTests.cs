@@ -115,6 +115,14 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             // TODO unit test for the property 'ContainsRestrictedFileFormat'
         }
         /// <summary>
+        /// Test the property 'ContainsMacros'
+        /// </summary>
+        [Test]
+        public void ContainsMacrosTest()
+        {
+            // TODO unit test for the property 'ContainsMacros'
+        }
+        /// <summary>
         /// Test the property 'VerifiedFileFormat'
         /// </summary>
         [Test]

@@ -88,8 +88,9 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowInvalidFiles = null;
             //bool? allowScripts = null;
             //bool? allowPasswordProtectedFiles = null;
+            //bool? allowMacros = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, restrictFileTypes);
+            //var response = instance.ScanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
             //Assert.IsInstanceOf<VirusScanAdvancedResult> (response, "response is VirusScanAdvancedResult");
         }
         
