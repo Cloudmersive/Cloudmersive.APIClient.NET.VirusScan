@@ -81,6 +81,28 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
         }
         
         /// <summary>
+        /// Test ScanCloudStorageScanAwsS3FileAdvanced
+        /// </summary>
+        [Test]
+        public void ScanCloudStorageScanAwsS3FileAdvancedTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string accessKey = null;
+            //string secretKey = null;
+            //string bucketRegion = null;
+            //string bucketName = null;
+            //string keyName = null;
+            //bool? allowExecutables = null;
+            //bool? allowInvalidFiles = null;
+            //bool? allowScripts = null;
+            //bool? allowPasswordProtectedFiles = null;
+            //bool? allowMacros = null;
+            //string restrictFileTypes = null;
+            //var response = instance.ScanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
+            //Assert.IsInstanceOf<CloudStorageAdvancedVirusScanResult> (response, "response is CloudStorageAdvancedVirusScanResult");
+        }
+        
+        /// <summary>
         /// Test ScanCloudStorageScanAzureBlob
         /// </summary>
         [Test]
@@ -95,6 +117,26 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
         }
         
         /// <summary>
+        /// Test ScanCloudStorageScanAzureBlobAdvanced
+        /// </summary>
+        [Test]
+        public void ScanCloudStorageScanAzureBlobAdvancedTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string connectionString = null;
+            //string containerName = null;
+            //string blobPath = null;
+            //bool? allowExecutables = null;
+            //bool? allowInvalidFiles = null;
+            //bool? allowScripts = null;
+            //bool? allowPasswordProtectedFiles = null;
+            //bool? allowMacros = null;
+            //string restrictFileTypes = null;
+            //var response = instance.ScanCloudStorageScanAzureBlobAdvanced(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
+            //Assert.IsInstanceOf<CloudStorageAdvancedVirusScanResult> (response, "response is CloudStorageAdvancedVirusScanResult");
+        }
+        
+        /// <summary>
         /// Test ScanCloudStorageScanGcpStorageFile
         /// </summary>
         [Test]
@@ -106,6 +148,26 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //System.IO.Stream jsonCredentialFile = null;
             //var response = instance.ScanCloudStorageScanGcpStorageFile(bucketName, objectName, jsonCredentialFile);
             //Assert.IsInstanceOf<CloudStorageVirusScanResult> (response, "response is CloudStorageVirusScanResult");
+        }
+        
+        /// <summary>
+        /// Test ScanCloudStorageScanGcpStorageFileAdvanced
+        /// </summary>
+        [Test]
+        public void ScanCloudStorageScanGcpStorageFileAdvancedTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string bucketName = null;
+            //string objectName = null;
+            //System.IO.Stream jsonCredentialFile = null;
+            //bool? allowExecutables = null;
+            //bool? allowInvalidFiles = null;
+            //bool? allowScripts = null;
+            //bool? allowPasswordProtectedFiles = null;
+            //bool? allowMacros = null;
+            //string restrictFileTypes = null;
+            //var response = instance.ScanCloudStorageScanGcpStorageFileAdvanced(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, restrictFileTypes);
+            //Assert.IsInstanceOf<CloudStorageAdvancedVirusScanResult> (response, "response is CloudStorageAdvancedVirusScanResult");
         }
         
     }
