@@ -123,6 +123,14 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             // TODO unit test for the property 'ContainsMacros'
         }
         /// <summary>
+        /// Test the property 'ContainsXmlExternalEntities'
+        /// </summary>
+        [Test]
+        public void ContainsXmlExternalEntitiesTest()
+        {
+            // TODO unit test for the property 'ContainsXmlExternalEntities'
+        }
+        /// <summary>
         /// Test the property 'VerifiedFileFormat'
         /// </summary>
         [Test]
