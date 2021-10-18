@@ -186,7 +186,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //string siteID = null;
             //string filePath = null;
             //string tenantID = null;
-            //var response = instance.ScanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID);
+            //string itemID = null;
+            //var response = instance.ScanCloudStorageScanSharePointOnlineFile(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, itemID);
             //Assert.IsInstanceOf<CloudStorageVirusScanResult> (response, "response is CloudStorageVirusScanResult");
         }
         
@@ -201,8 +202,9 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //string clientSecret = null;
             //string sharepointDomainName = null;
             //string siteID = null;
-            //string filePath = null;
             //string tenantID = null;
+            //string filePath = null;
+            //string itemID = null;
             //bool? allowExecutables = null;
             //bool? allowInvalidFiles = null;
             //bool? allowScripts = null;
@@ -210,7 +212,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowMacros = null;
             //bool? allowXmlExternalEntities = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, filePath, tenantID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
+            //var response = instance.ScanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, restrictFileTypes);
             //Assert.IsInstanceOf<CloudStorageAdvancedVirusScanResult> (response, "response is CloudStorageAdvancedVirusScanResult");
         }
         
