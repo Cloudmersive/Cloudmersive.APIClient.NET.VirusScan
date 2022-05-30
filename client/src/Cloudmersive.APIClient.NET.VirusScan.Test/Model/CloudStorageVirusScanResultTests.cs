@@ -106,6 +106,14 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
         {
             // TODO unit test for the property 'FileSize'
         }
+        /// <summary>
+        /// Test the property 'ContainsContentModerationRejection'
+        /// </summary>
+        [Test]
+        public void ContainsContentModerationRejectionTest()
+        {
+            // TODO unit test for the property 'ContainsContentModerationRejection'
+        }
 
     }
 

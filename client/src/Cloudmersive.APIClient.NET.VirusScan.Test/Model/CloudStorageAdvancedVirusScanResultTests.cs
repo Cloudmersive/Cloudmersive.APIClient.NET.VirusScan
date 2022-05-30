@@ -162,6 +162,14 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
         {
             // TODO unit test for the property 'FileSize'
         }
+        /// <summary>
+        /// Test the property 'ContentInformation'
+        /// </summary>
+        [Test]
+        public void ContentInformationTest()
+        {
+            // TODO unit test for the property 'ContentInformation'
+        }
 
     }
 
