@@ -147,6 +147,14 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             // TODO unit test for the property 'ContainsHtml'
         }
         /// <summary>
+        /// Test the property 'ContainsUnsafeArchive'
+        /// </summary>
+        [Test]
+        public void ContainsUnsafeArchiveTest()
+        {
+            // TODO unit test for the property 'ContainsUnsafeArchive'
+        }
+        /// <summary>
         /// Test the property 'VerifiedFileFormat'
         /// </summary>
         [Test]
