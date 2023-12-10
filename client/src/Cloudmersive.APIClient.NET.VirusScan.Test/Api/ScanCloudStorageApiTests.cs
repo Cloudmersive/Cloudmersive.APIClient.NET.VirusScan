@@ -76,7 +76,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //string bucketRegion = null;
             //string bucketName = null;
             //string keyName = null;
-            //var response = instance.ScanCloudStorageScanAwsS3File(accessKey, secretKey, bucketRegion, bucketName, keyName);
+            //string roleArn = null;
+            //var response = instance.ScanCloudStorageScanAwsS3File(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn);
             //Assert.IsInstanceOf<CloudStorageVirusScanResult> (response, "response is CloudStorageVirusScanResult");
         }
         
@@ -92,6 +93,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //string bucketRegion = null;
             //string bucketName = null;
             //string keyName = null;
+            //string roleArn = null;
             //bool? allowExecutables = null;
             //bool? allowInvalidFiles = null;
             //bool? allowScripts = null;
@@ -101,7 +103,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowInsecureDeserialization = null;
             //bool? allowHtml = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+            //var response = instance.ScanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
             //Assert.IsInstanceOf<CloudStorageAdvancedVirusScanResult> (response, "response is CloudStorageAdvancedVirusScanResult");
         }
         

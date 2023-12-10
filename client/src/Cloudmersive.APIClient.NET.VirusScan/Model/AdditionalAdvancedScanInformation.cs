@@ -36,11 +36,13 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
         /// <param name="containsJSON">True if the input file contains JSON data, false otherwise; this is not a threat signal.</param>
         /// <param name="containsXML">True if the input file contains XML data, false otherwise; this is not a threat signal.</param>
         /// <param name="containsImage">True if the input file contains an image.</param>
-        public AdditionalAdvancedScanInformation(bool? containsJSON = default(bool?), bool? containsXML = default(bool?), bool? containsImage = default(bool?))
+        /// <param name="relevantSubfileName">Relevant subfile name in an archive format for identified threats, if any.</param>
+        public AdditionalAdvancedScanInformation(bool? containsJSON = default(bool?), bool? containsXML = default(bool?), bool? containsImage = default(bool?), string relevantSubfileName = default(string))
         {
             this.ContainsJSON = containsJSON;
             this.ContainsXML = containsXML;
             this.ContainsImage = containsImage;
+            this.RelevantSubfileName = relevantSubfileName;
         }
         
         /// <summary>
@@ -65,6 +67,13 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
         public bool? ContainsImage { get; set; }
 
         /// <summary>
+        /// Relevant subfile name in an archive format for identified threats, if any
+        /// </summary>
+        /// <value>Relevant subfile name in an archive format for identified threats, if any</value>
+        [DataMember(Name="RelevantSubfileName", EmitDefaultValue=false)]
+        public string RelevantSubfileName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +84,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
             sb.Append("  ContainsJSON: ").Append(ContainsJSON).Append("\n");
             sb.Append("  ContainsXML: ").Append(ContainsXML).Append("\n");
             sb.Append("  ContainsImage: ").Append(ContainsImage).Append("\n");
+            sb.Append("  RelevantSubfileName: ").Append(RelevantSubfileName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +133,11 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
                     this.ContainsImage == input.ContainsImage ||
                     (this.ContainsImage != null &&
                     this.ContainsImage.Equals(input.ContainsImage))
+                ) && 
+                (
+                    this.RelevantSubfileName == input.RelevantSubfileName ||
+                    (this.RelevantSubfileName != null &&
+                    this.RelevantSubfileName.Equals(input.RelevantSubfileName))
                 );
         }
 
@@ -141,6 +156,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
                     hashCode = hashCode * 59 + this.ContainsXML.GetHashCode();
                 if (this.ContainsImage != null)
                     hashCode = hashCode * 59 + this.ContainsImage.GetHashCode();
+                if (this.RelevantSubfileName != null)
+                    hashCode = hashCode * 59 + this.RelevantSubfileName.GetHashCode();
                 return hashCode;
             }
         }

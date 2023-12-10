@@ -155,6 +155,14 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             // TODO unit test for the property 'ContainsUnsafeArchive'
         }
         /// <summary>
+        /// Test the property 'ContainsOleEmbeddedObject'
+        /// </summary>
+        [Test]
+        public void ContainsOleEmbeddedObjectTest()
+        {
+            // TODO unit test for the property 'ContainsOleEmbeddedObject'
+        }
+        /// <summary>
         /// Test the property 'VerifiedFileFormat'
         /// </summary>
         [Test]

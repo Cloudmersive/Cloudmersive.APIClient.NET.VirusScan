@@ -93,8 +93,10 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowInsecureDeserialization = null;
             //bool? allowHtml = null;
             //bool? allowUnsafeArchives = null;
+            //bool? allowOleEmbeddedObject = null;
+            //string options = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, restrictFileTypes);
+            //var response = instance.ScanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
             //Assert.IsInstanceOf<VirusScanAdvancedResult> (response, "response is VirusScanAdvancedResult");
         }
         

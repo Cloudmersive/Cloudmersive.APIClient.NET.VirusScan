@@ -90,6 +90,14 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
         {
             // TODO unit test for the property 'ContainsImage'
         }
+        /// <summary>
+        /// Test the property 'RelevantSubfileName'
+        /// </summary>
+        [Test]
+        public void RelevantSubfileNameTest()
+        {
+            // TODO unit test for the property 'RelevantSubfileName'
+        }
 
     }
 
