@@ -114,6 +114,102 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
         {
             // TODO unit test for the property 'ContainsContentModerationRejection'
         }
+        /// <summary>
+        /// Test the property 'ContainsExecutable'
+        /// </summary>
+        [Test]
+        public void ContainsExecutableTest()
+        {
+            // TODO unit test for the property 'ContainsExecutable'
+        }
+        /// <summary>
+        /// Test the property 'ContainsInvalidFile'
+        /// </summary>
+        [Test]
+        public void ContainsInvalidFileTest()
+        {
+            // TODO unit test for the property 'ContainsInvalidFile'
+        }
+        /// <summary>
+        /// Test the property 'ContainsScript'
+        /// </summary>
+        [Test]
+        public void ContainsScriptTest()
+        {
+            // TODO unit test for the property 'ContainsScript'
+        }
+        /// <summary>
+        /// Test the property 'ContainsPasswordProtectedFile'
+        /// </summary>
+        [Test]
+        public void ContainsPasswordProtectedFileTest()
+        {
+            // TODO unit test for the property 'ContainsPasswordProtectedFile'
+        }
+        /// <summary>
+        /// Test the property 'ContainsRestrictedFileFormat'
+        /// </summary>
+        [Test]
+        public void ContainsRestrictedFileFormatTest()
+        {
+            // TODO unit test for the property 'ContainsRestrictedFileFormat'
+        }
+        /// <summary>
+        /// Test the property 'ContainsMacros'
+        /// </summary>
+        [Test]
+        public void ContainsMacrosTest()
+        {
+            // TODO unit test for the property 'ContainsMacros'
+        }
+        /// <summary>
+        /// Test the property 'ContainsXmlExternalEntities'
+        /// </summary>
+        [Test]
+        public void ContainsXmlExternalEntitiesTest()
+        {
+            // TODO unit test for the property 'ContainsXmlExternalEntities'
+        }
+        /// <summary>
+        /// Test the property 'ContainsInsecureDeserialization'
+        /// </summary>
+        [Test]
+        public void ContainsInsecureDeserializationTest()
+        {
+            // TODO unit test for the property 'ContainsInsecureDeserialization'
+        }
+        /// <summary>
+        /// Test the property 'ContainsHtml'
+        /// </summary>
+        [Test]
+        public void ContainsHtmlTest()
+        {
+            // TODO unit test for the property 'ContainsHtml'
+        }
+        /// <summary>
+        /// Test the property 'ContainsUnsafeArchive'
+        /// </summary>
+        [Test]
+        public void ContainsUnsafeArchiveTest()
+        {
+            // TODO unit test for the property 'ContainsUnsafeArchive'
+        }
+        /// <summary>
+        /// Test the property 'ContainsOleEmbeddedObject'
+        /// </summary>
+        [Test]
+        public void ContainsOleEmbeddedObjectTest()
+        {
+            // TODO unit test for the property 'ContainsOleEmbeddedObject'
+        }
+        /// <summary>
+        /// Test the property 'VerifiedFileFormat'
+        /// </summary>
+        [Test]
+        public void VerifiedFileFormatTest()
+        {
+            // TODO unit test for the property 'VerifiedFileFormat'
+        }
 
     }
 

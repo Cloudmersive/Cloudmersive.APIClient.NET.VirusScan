@@ -91,12 +91,36 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             // TODO unit test for the property 'ContainsImage'
         }
         /// <summary>
+        /// Test the property 'HashSHA1'
+        /// </summary>
+        [Test]
+        public void HashSHA1Test()
+        {
+            // TODO unit test for the property 'HashSHA1'
+        }
+        /// <summary>
         /// Test the property 'RelevantSubfileName'
         /// </summary>
         [Test]
         public void RelevantSubfileNameTest()
         {
             // TODO unit test for the property 'RelevantSubfileName'
+        }
+        /// <summary>
+        /// Test the property 'RelevantSubfileHashSHA1'
+        /// </summary>
+        [Test]
+        public void RelevantSubfileHashSHA1Test()
+        {
+            // TODO unit test for the property 'RelevantSubfileHashSHA1'
+        }
+        /// <summary>
+        /// Test the property 'IsAuthenticodeSigned'
+        /// </summary>
+        [Test]
+        public void IsAuthenticodeSignedTest()
+        {
+            // TODO unit test for the property 'IsAuthenticodeSigned'
         }
 
     }

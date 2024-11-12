@@ -84,6 +84,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //System.IO.Stream inputFile = null;
+            //string fileName = null;
             //bool? allowExecutables = null;
             //bool? allowInvalidFiles = null;
             //bool? allowScripts = null;
@@ -96,7 +97,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowOleEmbeddedObject = null;
             //string options = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanFileAdvanced(inputFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+            //var response = instance.ScanFileAdvanced(inputFile, fileName, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
             //Assert.IsInstanceOf<VirusScanAdvancedResult> (response, "response is VirusScanAdvancedResult");
         }
         
