@@ -29,7 +29,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "3.4.0";
+        public const string Version = "3.4.1";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -114,7 +114,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Client
         /// </summary>
         public Configuration()
         {
-            UserAgent = "Swagger-Codegen/3.4.0/csharp";
+            UserAgent = "Swagger-Codegen/3.4.1/csharp";
             BasePath = "https://api.cloudmersive.com";
             DefaultHeader = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -187,7 +187,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Client
             string tempFolderPath = null,
             string dateTimeFormat = null,
             int timeout = 100000,
-            string userAgent = "Swagger-Codegen/3.4.0/csharp"
+            string userAgent = "Swagger-Codegen/3.4.1/csharp"
             // ReSharper restore UnusedParameter.Local
             )
         {
@@ -329,7 +329,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Client
         }
 
         /// <summary>
-        /// Gets or sets the the date time format used when serializing in the ApiClient
+        /// Gets or sets the date time format used when serializing in the ApiClient
         /// By default, it's set to ISO 8601 - "o", for others see:
         /// https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx
         /// and https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx
@@ -422,7 +422,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Client
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v1\n";
-            report += "    SDK Package Version: 3.4.0\n";
+            report += "    SDK Package Version: 3.4.1\n";
 
             return report;
         }

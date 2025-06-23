@@ -4,7 +4,7 @@ Invoke-WebRequest -Uri 'https://api.cloudmersive.com/virus/docs/v1/swagger' -Out
 (Get-Content .\virus-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\virus-api-swagger.json
 (Get-Content .\virus-api-swagger.json).replace('"http"', '"https"') | Set-Content .\virus-api-swagger.json
 
-& java -jar swagger-codegen-cli-2.4.5.jar generate -i .\virus-api-swagger.json -l csharp -o client -c packageconfig.json
+& java -jar swagger-codegen-cli-2.4.45.jar generate -i .\virus-api-swagger.json -l csharp -o client -c packageconfig.json
 #(Get-Content ./client/src/api/ConvertDocumentApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertDocumentApi.js
 #(Get-Content ./client/src/api/ConvertWebApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertWebApi.js
 #& npm build ./client
