@@ -116,9 +116,10 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowHtml = null;
             //bool? allowUnsafeArchives = null;
             //bool? allowOleEmbeddedObject = null;
+            //bool? allowUnwantedAction = null;
             //string options = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+            //var response = instance.ScanCloudStorageScanAwsS3FileAdvanced(accessKey, secretKey, bucketRegion, bucketName, keyName, roleArn, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
             //Assert.IsInstanceOf<CloudStorageAdvancedVirusScanResult> (response, "response is CloudStorageAdvancedVirusScanResult");
         }
         
@@ -156,9 +157,10 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowHtml = null;
             //bool? allowUnsafeArchives = null;
             //bool? allowOleEmbeddedObject = null;
+            //bool? allowUnwantedAction = null;
             //string options = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanCloudStorageScanAzureBlobAdvanced(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+            //var response = instance.ScanCloudStorageScanAzureBlobAdvanced(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
             //Assert.IsInstanceOf<CloudStorageAdvancedVirusScanResult> (response, "response is CloudStorageAdvancedVirusScanResult");
         }
         
@@ -182,9 +184,10 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowHtml = null;
             //bool? allowUnsafeArchives = null;
             //bool? allowOleEmbeddedObject = null;
+            //bool? allowUnwantedAction = null;
             //string options = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanCloudStorageScanAzureBlobAdvancedBatchJob(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+            //var response = instance.ScanCloudStorageScanAzureBlobAdvancedBatchJob(connectionString, containerName, blobPath, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
             //Assert.IsInstanceOf<ScanCloudStorageBatchJobCreateResult> (response, "response is ScanCloudStorageBatchJobCreateResult");
         }
         
@@ -222,9 +225,10 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowHtml = null;
             //bool? allowUnsafeArchives = null;
             //bool? allowOleEmbeddedObject = null;
+            //bool? allowUnwantedAction = null;
             //string options = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanCloudStorageScanGcpStorageFileAdvanced(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, options, restrictFileTypes);
+            //var response = instance.ScanCloudStorageScanGcpStorageFileAdvanced(bucketName, objectName, jsonCredentialFile, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, options, restrictFileTypes);
             //Assert.IsInstanceOf<CloudStorageAdvancedVirusScanResult> (response, "response is CloudStorageAdvancedVirusScanResult");
         }
         
@@ -268,8 +272,11 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             //bool? allowXmlExternalEntities = null;
             //bool? allowInsecureDeserialization = null;
             //bool? allowHtml = null;
+            //bool? allowUnsafeArchives = null;
+            //bool? allowOleEmbeddedObject = null;
+            //bool? allowUnwantedAction = null;
             //string restrictFileTypes = null;
-            //var response = instance.ScanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, restrictFileTypes);
+            //var response = instance.ScanCloudStorageScanSharePointOnlineFileAdvanced(clientID, clientSecret, sharepointDomainName, siteID, tenantID, filePath, itemID, allowExecutables, allowInvalidFiles, allowScripts, allowPasswordProtectedFiles, allowMacros, allowXmlExternalEntities, allowInsecureDeserialization, allowHtml, allowUnsafeArchives, allowOleEmbeddedObject, allowUnwantedAction, restrictFileTypes);
             //Assert.IsInstanceOf<CloudStorageAdvancedVirusScanResult> (response, "response is CloudStorageAdvancedVirusScanResult");
         }
         

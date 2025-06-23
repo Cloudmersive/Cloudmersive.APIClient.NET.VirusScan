@@ -99,6 +99,14 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Test
             // TODO unit test for the property 'Result'
         }
         /// <summary>
+        /// Test the property 'JobDuration'
+        /// </summary>
+        [Test]
+        public void JobDurationTest()
+        {
+            // TODO unit test for the property 'JobDuration'
+        }
+        /// <summary>
         /// Test the property 'ErrorMessage'
         /// </summary>
         [Test]

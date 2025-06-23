@@ -37,13 +37,15 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
         /// <param name="asyncJobStatus">Returns the job status of the Async Job, if applicable.  Possible states are STARTED and COMPLETED.</param>
         /// <param name="asyncJobID">Job ID of the async batch job.</param>
         /// <param name="result">Output scan result, if applicable.</param>
+        /// <param name="jobDuration">Duration of a completed job.</param>
         /// <param name="errorMessage">Error message (if any).</param>
-        public ScanCloudStorageJobStatusResult(bool? successful = default(bool?), string asyncJobStatus = default(string), string asyncJobID = default(string), CloudStorageAdvancedVirusScanResult result = default(CloudStorageAdvancedVirusScanResult), string errorMessage = default(string))
+        public ScanCloudStorageJobStatusResult(bool? successful = default(bool?), string asyncJobStatus = default(string), string asyncJobID = default(string), CloudStorageAdvancedVirusScanResult result = default(CloudStorageAdvancedVirusScanResult), string jobDuration = default(string), string errorMessage = default(string))
         {
             this.Successful = successful;
             this.AsyncJobStatus = asyncJobStatus;
             this.AsyncJobID = asyncJobID;
             this.Result = result;
+            this.JobDuration = jobDuration;
             this.ErrorMessage = errorMessage;
         }
         
@@ -76,6 +78,13 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
         public CloudStorageAdvancedVirusScanResult Result { get; set; }
 
         /// <summary>
+        /// Duration of a completed job
+        /// </summary>
+        /// <value>Duration of a completed job</value>
+        [DataMember(Name="JobDuration", EmitDefaultValue=false)]
+        public string JobDuration { get; set; }
+
+        /// <summary>
         /// Error message (if any)
         /// </summary>
         /// <value>Error message (if any)</value>
@@ -94,6 +103,7 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
             sb.Append("  AsyncJobStatus: ").Append(AsyncJobStatus).Append("\n");
             sb.Append("  AsyncJobID: ").Append(AsyncJobID).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
+            sb.Append("  JobDuration: ").Append(JobDuration).Append("\n");
             sb.Append("  ErrorMessage: ").Append(ErrorMessage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -150,6 +160,11 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
                     this.Result.Equals(input.Result))
                 ) && 
                 (
+                    this.JobDuration == input.JobDuration ||
+                    (this.JobDuration != null &&
+                    this.JobDuration.Equals(input.JobDuration))
+                ) && 
+                (
                     this.ErrorMessage == input.ErrorMessage ||
                     (this.ErrorMessage != null &&
                     this.ErrorMessage.Equals(input.ErrorMessage))
@@ -173,6 +188,8 @@ namespace Cloudmersive.APIClient.NET.VirusScan.Model
                     hashCode = hashCode * 59 + this.AsyncJobID.GetHashCode();
                 if (this.Result != null)
                     hashCode = hashCode * 59 + this.Result.GetHashCode();
+                if (this.JobDuration != null)
+                    hashCode = hashCode * 59 + this.JobDuration.GetHashCode();
                 if (this.ErrorMessage != null)
                     hashCode = hashCode * 59 + this.ErrorMessage.GetHashCode();
                 return hashCode;
