@@ -29,7 +29,7 @@ $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.VirusScan.sln
 
 
 
-(Get-Content $csprojpath).replace('<RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.VirusScan.git</RepositoryUrl>', '<RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.VirusScan.git</RepositoryUrl><PackageProjectUrl>https://cloudmersive.com/virus-api</PackageProjectUrl>') | Set-Content $csprojpath
+(Get-Content $csprojpath).replace('<RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.VirusScan.git</RepositoryUrl>', '<RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.VirusScan.git</RepositoryUrl><PackageProjectUrl>https://cloudmersive.com/virus-api</PackageProjectUrl><PackageIconUrl>https://cloudmersive.com/images/cmsdk.png</PackageIconUrl>') | Set-Content $csprojpath
 
 
 # RestSharp 106.6.10 - Core Project

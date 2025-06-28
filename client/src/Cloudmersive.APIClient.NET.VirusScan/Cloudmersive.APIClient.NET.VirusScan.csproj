@@ -12,10 +12,10 @@
     <Description>Cloudmersive Virus Scan allows you to scan files, URLs, and webistes for viruses, malware, trojans, ransomware, spyware, and many other types of threats.  Multi-factor scanning across many delivery methods including polymorphic and multipartite.  Scanning supports files, archives, and recursive file formats.</Description>
     <Copyright>Copyright © 2025 Cloudmersive, LLC.</Copyright>
     <RootNamespace>Cloudmersive.APIClient.NET.VirusScan</RootNamespace>
-    <Version>4.0.0</Version>
+    <Version>4.0.1</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Cloudmersive.APIClient.NET.VirusScan.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.VirusScan.git</RepositoryUrl><PackageProjectUrl>https://cloudmersive.com/virus-api</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Cloudmersive/Cloudmersive.APIClient.NET.VirusScan.git</RepositoryUrl><PackageProjectUrl>https://cloudmersive.com/virus-api</PackageProjectUrl><PackageIconUrl>https://cloudmersive.com/images/cmsdk.png</PackageIconUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Change to HttpClient core</PackageReleaseNotes>
     <PackageTags>virus scan security malware cloudmersive</PackageTags>
