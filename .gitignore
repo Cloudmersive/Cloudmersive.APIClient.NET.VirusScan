@@ -1,0 +1,84 @@
+###############################################################################
+# Visual Studio & .NET Framework                                             #
+###############################################################################
+
+## Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+*.cache
+*.dll
+*.exe
+*.tmp
+*.pdb
+
+## VS user‐specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.vspscc
+*.vssscc
+
+## VS performance/tracking
+.vs/
+.vscode/
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+# NuGet restore results
+project.assets.json
+# Global‐packages, cache, temp files
+~/.nuget/packages/
+~/.nuget/packages.cache/
+~/.nuget/fallbackpackages/
+
+## MSBuild binary logs & tools
+*.binlog
+*.obj
+
+## Test & coverage output
+TestResults/
+*.coverage
+*.coveragexml
+*.trx
+*.log
+
+## StyleCop / FxCop / Code analysis
+*.ruleset.testresults
+
+## ReSharper / Rider / JetBrains tools
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+.idea/
+
+## Windows / Explorer artifacts
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## VS Code coverage, analyzers, snapshots
+*.vsp
+*.vspx
+*.vsix
+_BrowseInformation/
+
+## IIS Express
+\.vsconfig
+*.vsps
+\.vspscc
+
+## Local config & secrets
+appsettings.*.local.json
+app.config.user
+web.*.config.local
+secrets.json
+
+###############################################################################
+# End of file                                                                 #
+###############################################################################

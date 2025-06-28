@@ -1,4 +1,6 @@
 # Cloudmersive.APIClient.NET.VirusScan.Model.CloudStorageVirusFound
+Virus positively identified
+
 ## Properties
 
 Name | Type | Description | Notes
