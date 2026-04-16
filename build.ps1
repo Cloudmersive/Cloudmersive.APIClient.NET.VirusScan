@@ -82,8 +82,8 @@ dotnet build $slnpath -c $configuration
 
 
 
-& C:\CodeSigning\sign.ps1 ./client/src/Cloudmersive.APIClient.NET.VirusScan/bin/Debug/netstandard2.0/Cloudmersive.APIClient.NET.VirusScan.dll
-& C:\CodeSigning\sign.ps1 ./client/src/Cloudmersive.APIClient.NET.VirusScan/bin/Release/netstandard2.0/Cloudmersive.APIClient.NET.VirusScan.dll
+& C:\CodeSigning\sign-gcp.ps1 ./client/src/Cloudmersive.APIClient.NET.VirusScan/bin/Debug/netstandard2.0/Cloudmersive.APIClient.NET.VirusScan.dll
+& C:\CodeSigning\sign-gcp.ps1 ./client/src/Cloudmersive.APIClient.NET.VirusScan/bin/Release/netstandard2.0/Cloudmersive.APIClient.NET.VirusScan.dll
 
 Write-Host "Packing..."
 
