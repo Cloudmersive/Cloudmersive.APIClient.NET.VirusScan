@@ -79,6 +79,10 @@ app.config.user
 web.*.config.local
 secrets.json
 
+## Strong name keys — must never be committed; sourced from C:\CodeSigning
+*.snk
+*.pfx
+
 ###############################################################################
 # End of file                                                                 #
 ###############################################################################

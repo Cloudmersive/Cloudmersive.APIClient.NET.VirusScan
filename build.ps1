@@ -72,10 +72,17 @@ $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.VirusScan.sln
 
 ./nuget.exe restore $csprojtestpath -SolutionDirectory ./client
 
-#C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe $slnpath /t:rebuild 
+#C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe $slnpath /t:rebuild
 $configuration = 'Release'
 
-dotnet build $slnpath -c $configuration
+# Strong name key is kept out of this repo. Every build machine must have
+# C:\CodeSigning checked out with the StrongNameKeysDotNet key pair present.
+$strongNameKey = 'C:\CodeSigning\StrongNameKeysDotNet\StrongNameKey.snk'
+if (-not (Test-Path -LiteralPath $strongNameKey)) {
+    throw "Strong name key not found at $strongNameKey. Ensure C:\CodeSigning is checked out on this build machine."
+}
+
+dotnet build $slnpath -c $configuration /p:SignAssembly=true /p:AssemblyOriginatorKeyFile=$strongNameKey
 
 #$msbuild = Get-LatestMsBuild
 #& $msbuild $slnpath /t:Rebuild /p:Configuration=$configuration
