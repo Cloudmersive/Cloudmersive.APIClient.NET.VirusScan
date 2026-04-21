@@ -87,9 +87,53 @@ dotnet build $slnpath -c $configuration /p:SignAssembly=true /p:AssemblyOriginat
 #$msbuild = Get-LatestMsBuild
 #& $msbuild $slnpath /t:Rebuild /p:Configuration=$configuration
 
+$builtDll = './client/src/Cloudmersive.APIClient.NET.VirusScan/bin/Release/netstandard2.0/Cloudmersive.APIClient.NET.VirusScan.dll'
 
+# --- Strong-name diagnostic helper -------------------------------------------
+function Test-StrongNameDiagnostic {
+    param([string]$DllPath, [string]$Stage)
 
-& C:\CodeSigning\sign-gcp.ps1 ./client/src/Cloudmersive.APIClient.NET.VirusScan/bin/Release/netstandard2.0/Cloudmersive.APIClient.NET.VirusScan.dll
+    Write-Host ""
+    Write-Host "=== Strong-name check ($Stage) ===" -ForegroundColor Cyan
+    Write-Host "DLL: $DllPath"
+
+    $snCandidates = @()
+    $snCandidates += (Get-Command sn.exe -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source)
+    foreach ($root in 'C:\Program Files (x86)\Microsoft SDKs\Windows','C:\Program Files\Microsoft SDKs\Windows') {
+        if (Test-Path -LiteralPath $root) {
+            $snCandidates += Get-ChildItem $root -Recurse -Filter sn.exe -ErrorAction SilentlyContinue |
+                Sort-Object FullName -Descending | Select-Object -ExpandProperty FullName
+        }
+    }
+    $snExe = $snCandidates | Where-Object { $_ -and (Test-Path -LiteralPath $_) } | Select-Object -First 1
+
+    try {
+        $asm = [System.Reflection.AssemblyName]::GetAssemblyName((Resolve-Path $DllPath))
+        $token = ($asm.GetPublicKeyToken() | ForEach-Object { $_.ToString('x2') }) -join ''
+        Write-Host "PublicKeyToken: $token"
+    } catch {
+        Write-Host "Could not read assembly metadata: $($_.Exception.Message)" -ForegroundColor Red
+    }
+
+    if ($snExe) {
+        Write-Host "Verifying with: $snExe"
+        & $snExe -vf $DllPath
+        Write-Host "sn.exe exit code: $LASTEXITCODE"
+        Write-Host "Delay-sign / full-sign status:"
+        & $snExe -q -Tp $DllPath 2>&1 | Out-Null  # warm up
+        & $snExe -vf -q $DllPath 2>&1
+    } else {
+        Write-Host "sn.exe not found; skipping signature verification." -ForegroundColor Yellow
+    }
+    Write-Host "=== end strong-name check ($Stage) ===" -ForegroundColor Cyan
+    Write-Host ""
+}
+
+Test-StrongNameDiagnostic -DllPath $builtDll -Stage 'after dotnet build (pre-Authenticode)'
+
+& C:\CodeSigning\sign-gcp.ps1 $builtDll
+
+Test-StrongNameDiagnostic -DllPath $builtDll -Stage 'after Authenticode signing'
 
 Write-Host "Packing..."
 
