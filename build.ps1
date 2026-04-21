@@ -97,8 +97,24 @@ function Test-StrongNameDiagnostic {
     Write-Host "=== Strong-name check ($Stage) ===" -ForegroundColor Cyan
     Write-Host "DLL: $DllPath"
 
+    # Prefer modern sn.exe (Windows Kits 10 / NETFX 4.x Tools) over the ancient v3.5 one.
     $snCandidates = @()
+    foreach ($root in 'C:\Program Files (x86)\Windows Kits\10\bin','C:\Program Files\Windows Kits\10\bin') {
+        if (Test-Path -LiteralPath $root) {
+            $snCandidates += Get-ChildItem $root -Recurse -Filter sn.exe -ErrorAction SilentlyContinue |
+                Where-Object { $_.FullName -match 'NETFX 4' -and $_.FullName -match 'x64' } |
+                Sort-Object FullName -Descending | Select-Object -ExpandProperty FullName
+        }
+    }
+    foreach ($root in 'C:\Program Files (x86)\Microsoft SDKs\Windows','C:\Program Files\Microsoft SDKs\Windows') {
+        if (Test-Path -LiteralPath $root) {
+            $snCandidates += Get-ChildItem $root -Recurse -Filter sn.exe -ErrorAction SilentlyContinue |
+                Where-Object { $_.FullName -match 'NETFX 4' -and $_.FullName -match 'x64' } |
+                Sort-Object FullName -Descending | Select-Object -ExpandProperty FullName
+        }
+    }
     $snCandidates += (Get-Command sn.exe -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source)
+    # Fall back to any sn.exe we can find, preferring newer paths.
     foreach ($root in 'C:\Program Files (x86)\Microsoft SDKs\Windows','C:\Program Files\Microsoft SDKs\Windows') {
         if (Test-Path -LiteralPath $root) {
             $snCandidates += Get-ChildItem $root -Recurse -Filter sn.exe -ErrorAction SilentlyContinue |
@@ -110,18 +126,70 @@ function Test-StrongNameDiagnostic {
     try {
         $asm = [System.Reflection.AssemblyName]::GetAssemblyName((Resolve-Path $DllPath))
         $token = ($asm.GetPublicKeyToken() | ForEach-Object { $_.ToString('x2') }) -join ''
-        Write-Host "PublicKeyToken: $token"
+        $pubKey = $asm.GetPublicKey()
+        Write-Host "PublicKeyToken : $token"
+        Write-Host "PublicKey size : $($pubKey.Length) bytes (160 = typical 2048-bit RSA public key blob)"
     } catch {
         Write-Host "Could not read assembly metadata: $($_.Exception.Message)" -ForegroundColor Red
     }
 
+    # Independent check: read the CLR header's StrongNameSignature directory.
+    # If size is zero, the assembly has no signature slot allocated at all (shouldn't happen
+    # with SignAssembly=true). If size is non-zero and the slot contains all-zero bytes,
+    # the assembly is delay-signed (public key + empty hash). Otherwise it is fully signed.
+    try {
+        $bytes = [System.IO.File]::ReadAllBytes((Resolve-Path $DllPath))
+        $peOffset = [BitConverter]::ToInt32($bytes, 0x3C)
+        $optHdrOffset = $peOffset + 24
+        $magic = [BitConverter]::ToUInt16($bytes, $optHdrOffset)
+        $cliHdrRvaOffset = if ($magic -eq 0x20B) { $optHdrOffset + 112 + 14*8 } else { $optHdrOffset + 96 + 14*8 }
+        $cliHdrRva  = [BitConverter]::ToInt32($bytes, $cliHdrRvaOffset)
+        $cliHdrSize = [BitConverter]::ToInt32($bytes, $cliHdrRvaOffset + 4)
+
+        # Find the section containing the CLI header so we can translate RVA -> file offset.
+        $numSections = [BitConverter]::ToUInt16($bytes, $peOffset + 6)
+        $sizeOfOptHdr = [BitConverter]::ToUInt16($bytes, $peOffset + 20)
+        $sectionTableOffset = $peOffset + 24 + $sizeOfOptHdr
+        function Rva2Offset {
+            param([int]$Rva, [byte[]]$Bytes, [int]$SectionTableOffset, [int]$NumSections)
+            for ($i = 0; $i -lt $NumSections; $i++) {
+                $s = $SectionTableOffset + 40*$i
+                $vSize = [BitConverter]::ToInt32($Bytes, $s + 8)
+                $vAddr = [BitConverter]::ToInt32($Bytes, $s + 12)
+                $rawPtr = [BitConverter]::ToInt32($Bytes, $s + 20)
+                if ($Rva -ge $vAddr -and $Rva -lt ($vAddr + $vSize)) {
+                    return $rawPtr + ($Rva - $vAddr)
+                }
+            }
+            return -1
+        }
+        $cliHdrFileOffset = Rva2Offset $cliHdrRva $bytes $sectionTableOffset $numSections
+        # CLI header layout: StrongNameSignature directory is at offset 32 (RVA + size).
+        $snRva  = [BitConverter]::ToInt32($bytes, $cliHdrFileOffset + 32)
+        $snSize = [BitConverter]::ToInt32($bytes, $cliHdrFileOffset + 36)
+        $clrFlags = [BitConverter]::ToInt32($bytes, $cliHdrFileOffset + 16)
+        Write-Host ("CLR flags      : 0x{0:X8}  (bit 0x8 = StrongNameSigned)" -f $clrFlags)
+        Write-Host ("StrongNameSig  : RVA=0x{0:X} size={1} bytes" -f $snRva, $snSize)
+        if ($snSize -gt 0) {
+            $snOffset = Rva2Offset $snRva $bytes $sectionTableOffset $numSections
+            $allZero = $true
+            for ($i = 0; $i -lt $snSize; $i++) { if ($bytes[$snOffset + $i] -ne 0) { $allZero = $false; break } }
+            if ($allZero) {
+                Write-Host "Signature slot : ALL ZEROS -> assembly is DELAY-SIGNED (no real signature)" -ForegroundColor Red
+            } else {
+                Write-Host "Signature slot : contains non-zero data (fully signed or signature present)" -ForegroundColor Green
+            }
+        } else {
+            Write-Host "Signature slot : NOT ALLOCATED -> assembly is not strong-named at all" -ForegroundColor Red
+        }
+    } catch {
+        Write-Host "PE header inspection failed: $($_.Exception.Message)" -ForegroundColor Yellow
+    }
+
     if ($snExe) {
-        Write-Host "Verifying with: $snExe"
+        Write-Host "Verifying with : $snExe"
         & $snExe -vf $DllPath
         Write-Host "sn.exe exit code: $LASTEXITCODE"
-        Write-Host "Delay-sign / full-sign status:"
-        & $snExe -q -Tp $DllPath 2>&1 | Out-Null  # warm up
-        & $snExe -vf -q $DllPath 2>&1
     } else {
         Write-Host "sn.exe not found; skipping signature verification." -ForegroundColor Yellow
     }
